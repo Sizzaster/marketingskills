@@ -55,6 +55,8 @@ Quick reference for AI agents to discover tool capabilities and integration meth
 | meta-ads | Ads | ✓ | - | [✓](clis/meta-ads.js) | ✓ | [meta-ads.md](integrations/meta-ads.md) |
 | linkedin-ads | Ads | ✓ | - | [✓](clis/linkedin-ads.js) | - | [linkedin-ads.md](integrations/linkedin-ads.md) |
 | tiktok-ads | Ads | ✓ | - | [✓](clis/tiktok-ads.js) | ✓ | [tiktok-ads.md](integrations/tiktok-ads.md) |
+| pinterest-ads | Ads | ✓ | - | [✓](clis/pinterest-ads.js) | ✓ | [pinterest-ads.md](integrations/pinterest-ads.md) |
+| twitter-ads | Ads | ✓ | - | [✓](clis/twitter-ads.js) | ✓ | [twitter-ads.md](integrations/twitter-ads.md) |
 | zapier | Automation | ✓ | ✓ | [✓](clis/zapier.js) | - | [zapier.md](integrations/zapier.md) |
 | hotjar | CRO | ✓ | - | [✓](clis/hotjar.js) | - | [hotjar.md](integrations/hotjar.md) |
 | optimizely | A/B Testing | ✓ | - | [✓](clis/optimizely.js) | ✓ | [optimizely.md](integrations/optimizely.md) |
@@ -72,6 +74,8 @@ Quick reference for AI agents to discover tool capabilities and integration meth
 | shopify | Commerce | ✓ | - | ✓ | ✓ | [shopify.md](integrations/shopify.md) |
 | wordpress | CMS | ✓ | - | ✓ | ✓ | [wordpress.md](integrations/wordpress.md) |
 | webflow | CMS | ✓ | - | ✓ | ✓ | [webflow.md](integrations/webflow.md) |
+| google-sheets | Reporting | ✓ | - | [✓](clis/google-sheets.js) | ✓ | [google-sheets.md](integrations/google-sheets.md) |
+| mait-report | Reporting | - | - | [✓](clis/mait-report.js) | - | - |
 
 ---
 
@@ -171,10 +175,12 @@ Paid advertising platforms and campaign management.
 |------|----------|:-------------:|
 | **google-ads** | Search intent, high-intent traffic | ✓ |
 | **meta-ads** | Demand gen, visual products, B2C | - |
+| **pinterest-ads** | Visual discovery, shopping, brand awareness | - |
+| **twitter-ads** | Promoted content, conversation ads | - |
 | **linkedin-ads** | B2B, job title targeting | - |
 | **tiktok-ads** | Younger demographics, video | - |
 
-**Agent recommendation**: Google Ads for search intent. Meta for demand generation. LinkedIn for B2B.
+**Agent recommendation**: Google Ads for search intent. Meta for demand generation. Pinterest for visual/shopping. Twitter/X for conversation. LinkedIn for B2B.
 
 ### Automation
 
@@ -366,3 +372,10 @@ To use MCP tools, ensure the appropriate MCP server is configured in your enviro
 ### Running paid ads
 1. Read [google-ads.md](integrations/google-ads.md) for search campaigns
 2. Read [meta-ads.md](integrations/meta-ads.md) for social campaigns
+3. Read [pinterest-ads.md](integrations/pinterest-ads.md) for visual/shopping campaigns
+4. Read [twitter-ads.md](integrations/twitter-ads.md) for Twitter/X campaigns
+
+### Automating MAIT reports
+1. Read the `automate-mait-reporting` skill for full workflow
+2. Use [mait-report.js](clis/mait-report.js) to compile and write reports
+3. Use [google-sheets.md](integrations/google-sheets.md) for output destination
