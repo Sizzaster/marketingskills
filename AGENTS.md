@@ -212,6 +212,53 @@ When using any skill from this repository:
    - Run `git pull` in the marketingskills directory
    - Confirm what was updated
 
+## Heavenly Heat Saunas — Agent Fleet
+
+This repository powers the marketing skills for **Heavenly Heat Saunas**. The company runs a fleet of 13 AI agents managed via a Command Center dashboard. When working in this repo, be aware of the existing agents and their schedules — do NOT create new agents without checking this list first.
+
+### Dashboard Agents (Scheduled)
+
+| Agent | Role | Schedule | Monitors |
+|-------|------|----------|----------|
+| **Cecilia CEO** | Weekly Strategic View | Mondays 07:00 CT | MAIT, Shopify, FT, EOS Scorecard, all department dashboards |
+| **Frank Finance** | Daily Financial Refresh | Daily 04:00 CT | MAIT, FT, FBT, Shopify API, cash flow |
+| **Ivy Inventory** | Weekly Inventory Refresh | Fridays 06:00 CT | Shopify fulfillment, PO pipeline, QC inspection data |
+| **Rita Returns** | Weekly Returns Tracker | Fridays 06:00 CT | Shopify refunds, return reasons, SKU defect patterns |
+
+### Active Agents
+
+| Agent | Role | Description |
+|-------|------|-------------|
+| **Sally Sales** | Daily Revenue Intel | Morning revenue briefing. Pulls Shopify data, tracks orders, products, and daily trends |
+| **Ingrid Instagram** | IG Intelligence | Searches web for verified Instagram sauna posts, brand mentions, and engagement opportunities |
+| **Tim Tweets** | X/Twitter Radar | Monitors X conversations, wellness trends, viral threads, and influencer signals |
+| **Ruby Refresh** | Weekly Repo Updater | Visits all 31 tracked Google documents, checks for changes, updates department CLAUDE.md files |
+| **Preston Partnerships** | Weekly Sales Attribution | Weekly trailing 7-day sauna sales report. Breaks down by affiliate codes, paid media codes, and organic |
+
+### Fleet Size
+
+Total fleet: **13 agents** (8 online, 4 queued as of last dashboard check).
+
+### Agent-to-Skill Mapping
+
+When a user references an agent by name, activate the corresponding skill:
+
+| Agent | Primary Skill | Notes |
+|-------|---------------|-------|
+| Frank Finance | `automate-mait-reporting` | Already pulls MAIT data daily at 04:00 CT. Also uses `revops` |
+| Sally Sales | `automate-mait-reporting` | Revenue intel from Shopify + ad spend. Also uses Shopify CLI |
+| Cecilia CEO | `automate-mait-reporting` | Consumes MAIT weekly for strategic dashboard |
+| Preston Partnerships | `automate-mait-reporting`, `referral-program` | Attribution by discount code type |
+| Ingrid Instagram | `social-content` | Instagram monitoring |
+| Tim Tweets | `social-content` | Twitter/X monitoring |
+
+### Important
+
+- **Do NOT create new agent personas** without checking this fleet list
+- **Frank Finance already runs MAIT daily at 04:00 CT** — do not duplicate this
+- **Sally Sales already does daily revenue intel** — do not duplicate this
+- Agent dashboard location: `agent-dashboard.html` on the user's Google Drive
+
 ## Skill Categories
 
 See `README.md` for the current list of skills organized by category. When adding new skills, follow the naming patterns of existing skills in that category.
