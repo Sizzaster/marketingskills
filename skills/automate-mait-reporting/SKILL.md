@@ -282,6 +282,70 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key tools
 
 ---
 
+## Quick Pull Script
+
+For a one-command pull of all platform data, use the included shell script:
+
+```bash
+# Pull all of February 2026
+./skills/automate-mait-reporting/scripts/mait-pull.sh 2026-02-01 2026-02-28
+
+# Pull yesterday
+./skills/automate-mait-reporting/scripts/mait-pull.sh
+
+# Pull a specific day
+./skills/automate-mait-reporting/scripts/mait-pull.sh 2026-03-16
+```
+
+The script auto-detects which platforms have tokens set and pulls only from those. It compiles via `mait-report.js` and writes to Google Sheets if `GOOGLE_SHEETS_ACCESS_TOKEN` and `GOOGLE_SHEETS_SPREADSHEET_ID` are set.
+
+---
+
+## Agent: Sally (MAIT Reporting Agent)
+
+**Sally** is the dedicated MAIT reporting agent. When the user says "have Sally run the report," "Sally pull the numbers," or "ask Sally for February spend," this is the agent to invoke.
+
+### Sally's Responsibilities
+
+1. **Daily MAIT pulls** — Pull ad spend from all configured platforms for the requested date range
+2. **Google Sheets output** — Write compiled data to the MAIT Google Sheet
+3. **Spend summaries** — Answer questions like "how much did we spend on Pinterest in February?"
+4. **Anomaly alerts** — Flag if any platform's spend is 2x+ above or below the trailing 7-day average
+
+### How Sally Runs a Report
+
+1. Check which platform tokens are available in the environment
+2. Run the pull script: `./skills/automate-mait-reporting/scripts/mait-pull.sh {start} {end}`
+3. Parse the JSON output for spend totals per platform
+4. Write to Google Sheets (or present as a summary if no Sheets token)
+5. Report back with a clean summary table
+
+### Sally's Quick Commands
+
+| User Says | Sally Does |
+|-----------|------------|
+| "Sally, pull February" | `mait-pull.sh 2026-02-01 2026-02-28` |
+| "Sally, how much on Pinterest this month?" | Pull Pinterest analytics for current month, summarize spend |
+| "Sally, daily report" | `mait-pull.sh` (yesterday) |
+| "Sally, put it in the sheet" | Run with `GOOGLE_SHEETS_SPREADSHEET_ID` set |
+
+### Setting Up Sally as a Scheduled Agent
+
+To have Sally run automatically every morning:
+
+```bash
+# Add to crontab (runs daily at 8 AM)
+crontab -e
+0 8 * * * cd /path/to/marketingskills && ./skills/automate-mait-reporting/scripts/mait-pull.sh >> /tmp/mait-daily.log 2>&1
+```
+
+Or use the `/loop` command in Claude Code for session-based recurring pulls:
+```
+/loop 24h ./skills/automate-mait-reporting/scripts/mait-pull.sh
+```
+
+---
+
 ## Related Skills
 
 - **analytics-tracking**: For setting up conversion tracking that feeds MAIT data
