@@ -224,20 +224,24 @@ Each department has one primary agent. Some departments share agents for social 
 |---|-----------|-------|------|----------|
 | 1 | **CEO** | Cecilia CEO | Weekly Strategic View | Mondays 07:00 CT |
 | 2 | **Finance** | Frank Finance | Daily Financial Refresh | Daily 04:00 CT |
-| 3 | **Sales** | Sally Sales | Daily Revenue Intel | Daily (morning) |
+| 3 | **Sales** | Sally Sales | Daily Revenue Intel | Daily 06:08 CT |
 | 4 | **Inventory** | Ivy Inventory | Weekly Inventory Refresh | Fridays 06:00 CT |
 | 5 | **Returns** | Rita Returns | Weekly Returns Tracker | Fridays 06:00 CT |
-| 6 | **Social** | Ingrid Instagram | IG Intelligence | Active |
-| 6 | **Social** | Tim Tweets | X/Twitter Radar | Active |
+| 6 | **Social** | Ingrid Instagram | IG Intelligence | Daily 05:15 CT |
+| 6 | **Social** | Tim Tweets | X/Twitter Radar | Daily 05:20 CT |
 | 6 | **Social** | Tessa | Tweet Scanner / Email Reports | Active |
-| 7 | **Partnerships** | Preston Partnerships | Weekly Sales Attribution | Weekly |
-| 8 | **Operations** | Ruby Refresh | Weekly Repo Updater | Weekly |
+| 7 | **Partnerships** | Preston Partnerships | Weekly Sales Attribution | Fridays 15:00 CT |
+| 8 | **Operations** | Ruby Refresh | Weekly Repo Updater | Fridays 15:00 CT |
+| 9 | **Communications** | Diana Drafts | Email Reply Co-Pilot | Twice Daily |
+| 10 | **Brand Voice** | Willa Writer | Writing Style Engine | Weekly |
+| 11 | **Archives** | Aria Archive | Communication Vault | Nightly |
+| 12 | **Meta/Coordination** | Dahlia Dashboard | Meta-Agent Coordinator | Daily 06:00 & 18:00 CT |
 
-**Departments documented: 8.** Target: 10–15. New departments to be added as agents are created (e.g., Data/Reporting, Customer Service, Marketing/Paid, Product, HR).
+**Departments documented: 12.** Target: 10–15. New departments to be added as agents are created (e.g., Customer Service, Marketing/Paid, Product, HR).
 
 ### Fleet Size
 
-Total fleet: **13 agents** (10 named above + 3 not yet documented). 8 online, 4 queued as of last dashboard check.
+Total fleet: **14 agents** (all documented above). 5 dashboard, 5 active, 4 planned (pending deployment).
 
 ### What Each Agent Monitors
 
@@ -253,6 +257,10 @@ Total fleet: **13 agents** (10 named above + 3 not yet documented). 8 online, 4 
 | Tessa | Tweet scanning (142 tweets/day), sends email reports |
 | Preston Partnerships | Affiliate codes, paid media codes, organic attribution |
 | Ruby Refresh | 31 tracked Google documents, department CLAUDE.md files |
+| Diana Drafts | Gmail inbox, sender priority, thread context |
+| Willa Writer | Gmail sent folder, style drift detection |
+| Aria Archive | Gmail sent folder, pattern indexing |
+| Dahlia Dashboard | All agent logs, error rates, uptime |
 
 ### Agent-to-Skill Mapping
 
@@ -267,6 +275,10 @@ When a user references an agent by name, activate the corresponding skill:
 | Ingrid Instagram | `social-content` | Instagram monitoring |
 | Tim Tweets | `social-content` | Twitter/X monitoring |
 | Tessa | `social-content` | Tweet scanning and email reports |
+| Diana Drafts | `email-sequence` | Drafts replies in Warren's voice. Pending deployment |
+| Willa Writer | `email-sequence` | Analyzes tone, vocabulary, formatting. Pending deployment |
+| Aria Archive | `email-sequence` | Builds searchable knowledge base of sent emails. Pending deployment |
+| Dahlia Dashboard | — | Coordinates all agents, pulls status twice daily. Pending deployment |
 
 ### Important
 
