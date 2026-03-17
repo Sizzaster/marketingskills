@@ -100,8 +100,14 @@ async function main() {
           if (!startTime || !endTime) { result = { error: '--start-time and --end-time required (ISO 8601 format)' }; break }
           const granularity = args.granularity || 'DAY'
           const placement = args.placement || 'ALL_ON_TWITTER'
-          const entityIds = args['campaign-ids'] || args.id
-          if (!entityIds) { result = { error: '--campaign-ids or --id required' }; break }
+          let entityIds = args['campaign-ids'] || args.id
+          if (!entityIds) {
+            const campaigns = await api('GET', `/accounts/${accountId}/campaigns`)
+            if (campaigns._dry_run) { result = campaigns; break }
+            const items = (campaigns.data || [])
+            if (items.length === 0) { result = { error: 'No campaigns found in this ad account' }; break }
+            entityIds = items.map(c => c.id).join(',')
+          }
           result = await api('GET', `/stats/accounts/${accountId}?entity=CAMPAIGN&entity_ids=${entityIds}&start_time=${encodeURIComponent(startTime)}&end_time=${encodeURIComponent(endTime)}&granularity=${granularity}&placement=${placement}&metric_groups=BILLING,ENGAGEMENT,MEDIA,WEB_CONVERSION`)
           break
         }

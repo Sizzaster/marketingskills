@@ -95,26 +95,30 @@ node tools/clis/google-ads.js campaigns performance \
 #### Pinterest Ads
 
 ```bash
-# Pull campaign analytics
+# Pull campaign analytics (auto-discovers all campaign IDs)
 node tools/clis/pinterest-ads.js campaigns analytics \
-  --ad-account-id {account_id} \
+  --ad-account-id 823877462990642660 \
   --start-date {YYYY-MM-DD} \
   --end-date {YYYY-MM-DD}
 ```
 
 **Key fields**: `SPEND_IN_MICRO_DOLLAR` (divide by 1,000,000), `IMPRESSION`, `CLICKTHROUGH`, `TOTAL_CONVERSIONS`
 
+**Account**: Heavenly Heat Saunas — Ad Account ID `823877462990642660`
+
 #### Twitter/X Ads
 
 ```bash
-# Pull campaign stats
+# Pull campaign stats (auto-discovers all campaign IDs)
 node tools/clis/twitter-ads.js campaigns stats \
-  --account-id {account_id} \
+  --account-id 2033881993977462785 \
   --start-time {YYYY-MM-DDT00:00:00Z} \
   --end-time {YYYY-MM-DDT23:59:59Z}
 ```
 
 **Key fields**: `billed_charge_local_micro` (divide by 1,000,000), `impressions`, `clicks`, `conversion_purchases`
+
+**Account**: Heavenly Heat Saunas — Ads Account ID `2033881993977462785`
 
 ### Step 2: Pull Shopify Orders
 
@@ -157,11 +161,11 @@ Create a shell script that runs daily via cron or a scheduler:
 
 DATE=$(date -d "yesterday" +%Y-%m-%d)
 
-# Pull from each platform
+# Pull from each platform (campaign IDs auto-discovered)
 META_DATA=$(node tools/clis/meta-ads.js campaigns insights --date-preset yesterday)
 GOOGLE_DATA=$(node tools/clis/google-ads.js campaigns performance --start-date $DATE --end-date $DATE)
-PINTEREST_DATA=$(node tools/clis/pinterest-ads.js campaigns analytics --start-date $DATE --end-date $DATE)
-TWITTER_DATA=$(node tools/clis/twitter-ads.js campaigns stats --start-time ${DATE}T00:00:00Z --end-time ${DATE}T23:59:59Z)
+PINTEREST_DATA=$(node tools/clis/pinterest-ads.js campaigns analytics --ad-account-id 823877462990642660 --start-date $DATE --end-date $DATE)
+TWITTER_DATA=$(node tools/clis/twitter-ads.js campaigns stats --account-id 2033881993977462785 --start-time ${DATE}T00:00:00Z --end-time ${DATE}T23:59:59Z)
 
 # Pull Shopify orders
 SHOPIFY_DATA=$(node tools/clis/shopify.js orders list --created-at-min ${DATE}T00:00:00-00:00 --created-at-max ${DATE}T23:59:59-00:00)

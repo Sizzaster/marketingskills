@@ -94,7 +94,15 @@ async function main() {
           if (!startDate) { result = { error: '--start-date required (YYYY-MM-DD)' }; break }
           const columns = args.columns || 'SPEND_IN_MICRO_DOLLAR,IMPRESSION,CLICKTHROUGH,TOTAL_CONVERSIONS,TOTAL_CONVERSIONS_VALUE_IN_MICRO_DOLLAR'
           const granularity = args.granularity || 'DAY'
-          result = await api('GET', `/ad_accounts/${accountId}/campaigns/analytics?start_date=${startDate}&end_date=${endDate}&columns=${columns}&granularity=${granularity}`)
+          let campaignIds = args['campaign-ids']
+          if (!campaignIds) {
+            const campaigns = await api('GET', `/ad_accounts/${accountId}/campaigns`)
+            if (campaigns._dry_run) { result = campaigns; break }
+            const items = campaigns.items || []
+            if (items.length === 0) { result = { error: 'No campaigns found in this ad account' }; break }
+            campaignIds = items.map(c => c.id).join(',')
+          }
+          result = await api('GET', `/ad_accounts/${accountId}/campaigns/analytics?campaign_ids=${campaignIds}&start_date=${startDate}&end_date=${endDate}&columns=${columns}&granularity=${granularity}`)
           break
         }
         case 'create': {
