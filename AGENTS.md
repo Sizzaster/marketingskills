@@ -216,28 +216,43 @@ When using any skill from this repository:
 
 This repository powers the marketing skills for **Heavenly Heat Saunas**. The company runs a fleet of 13 AI agents managed via a Command Center dashboard. When working in this repo, be aware of the existing agents and their schedules — do NOT create new agents without checking this list first.
 
-### Dashboard Agents (Scheduled)
+### Departments and Agents
 
-| Agent | Role | Schedule | Monitors |
-|-------|------|----------|----------|
-| **Cecilia CEO** | Weekly Strategic View | Mondays 07:00 CT | MAIT, Shopify, FT, EOS Scorecard, all department dashboards |
-| **Frank Finance** | Daily Financial Refresh | Daily 04:00 CT | MAIT, FT, FBT, Shopify API, cash flow |
-| **Ivy Inventory** | Weekly Inventory Refresh | Fridays 06:00 CT | Shopify fulfillment, PO pipeline, QC inspection data |
-| **Rita Returns** | Weekly Returns Tracker | Fridays 06:00 CT | Shopify refunds, return reasons, SKU defect patterns |
+Each department has one primary agent. Some departments share agents for social channels.
 
-### Active Agents
+| # | Department | Agent | Role | Schedule |
+|---|-----------|-------|------|----------|
+| 1 | **CEO** | Cecilia CEO | Weekly Strategic View | Mondays 07:00 CT |
+| 2 | **Finance** | Frank Finance | Daily Financial Refresh | Daily 04:00 CT |
+| 3 | **Sales** | Sally Sales | Daily Revenue Intel | Daily (morning) |
+| 4 | **Inventory** | Ivy Inventory | Weekly Inventory Refresh | Fridays 06:00 CT |
+| 5 | **Returns** | Rita Returns | Weekly Returns Tracker | Fridays 06:00 CT |
+| 6 | **Social** | Ingrid Instagram | IG Intelligence | Active |
+| 6 | **Social** | Tim Tweets | X/Twitter Radar | Active |
+| 6 | **Social** | Tessa | Tweet Scanner / Email Reports | Active |
+| 7 | **Partnerships** | Preston Partnerships | Weekly Sales Attribution | Weekly |
+| 8 | **Operations** | Ruby Refresh | Weekly Repo Updater | Weekly |
 
-| Agent | Role | Description |
-|-------|------|-------------|
-| **Sally Sales** | Daily Revenue Intel | Morning revenue briefing. Pulls Shopify data, tracks orders, products, and daily trends |
-| **Ingrid Instagram** | IG Intelligence | Searches web for verified Instagram sauna posts, brand mentions, and engagement opportunities |
-| **Tim Tweets** | X/Twitter Radar | Monitors X conversations, wellness trends, viral threads, and influencer signals |
-| **Ruby Refresh** | Weekly Repo Updater | Visits all 31 tracked Google documents, checks for changes, updates department CLAUDE.md files |
-| **Preston Partnerships** | Weekly Sales Attribution | Weekly trailing 7-day sauna sales report. Breaks down by affiliate codes, paid media codes, and organic |
+**Departments documented: 8.** Target: 10–15. New departments to be added as agents are created (e.g., Data/Reporting, Customer Service, Marketing/Paid, Product, HR).
 
 ### Fleet Size
 
-Total fleet: **13 agents** (8 online, 4 queued as of last dashboard check).
+Total fleet: **13 agents** (10 named above + 3 not yet documented). 8 online, 4 queued as of last dashboard check.
+
+### What Each Agent Monitors
+
+| Agent | Data Sources |
+|-------|-------------|
+| Cecilia CEO | MAIT, Shopify, FT, EOS Scorecard, all department dashboards |
+| Frank Finance | MAIT, FT, FBT, Shopify API, cash flow |
+| Sally Sales | Shopify data, orders, products, daily trends |
+| Ivy Inventory | Shopify fulfillment, PO pipeline, QC inspection data |
+| Rita Returns | Shopify refunds, return reasons, SKU defect patterns |
+| Ingrid Instagram | Instagram posts, brand mentions, engagement opportunities |
+| Tim Tweets | X conversations, wellness trends, viral threads, influencer signals |
+| Tessa | Tweet scanning (142 tweets/day), sends email reports |
+| Preston Partnerships | Affiliate codes, paid media codes, organic attribution |
+| Ruby Refresh | 31 tracked Google documents, department CLAUDE.md files |
 
 ### Agent-to-Skill Mapping
 
@@ -251,6 +266,7 @@ When a user references an agent by name, activate the corresponding skill:
 | Preston Partnerships | `automate-mait-reporting`, `referral-program` | Attribution by discount code type |
 | Ingrid Instagram | `social-content` | Instagram monitoring |
 | Tim Tweets | `social-content` | Twitter/X monitoring |
+| Tessa | `social-content` | Tweet scanning and email reports |
 
 ### Important
 
@@ -258,6 +274,49 @@ When a user references an agent by name, activate the corresponding skill:
 - **Frank Finance already runs MAIT daily at 04:00 CT** — do not duplicate this
 - **Sally Sales already does daily revenue intel** — do not duplicate this
 - Agent dashboard location: `agent-dashboard.html` on the user's Google Drive
+
+## Self-Updating Instructions (Recursive Learning)
+
+**Every Claude Code session that modifies this repo MUST update documentation before finishing.** This is how the repo learns from each session.
+
+### When to Update (Triggers)
+
+After completing any of these actions, update the relevant docs **in the same session, before your final commit**:
+
+1. **New agent created** → Add to the Departments and Agents table above, update Fleet Size, add to Agent-to-Skill Mapping
+2. **New department added** → Add row to Departments table, increment department count
+3. **New skill created** → Update `README.md` skill list, add to Agent-to-Skill Mapping if applicable
+4. **Agent schedule changed** → Update the Departments and Agents table
+5. **New tool integration added** → Update `tools/REGISTRY.md` and the When to Use Tools section
+6. **Skill deleted or renamed** → Update all references in CLAUDE.md, README.md, and any skill cross-references
+7. **Fleet size changed** → Update Fleet Size count
+8. **New data source connected** → Update the What Each Agent Monitors table
+
+### What to Update (Checklist)
+
+For **every structural change**, check these files:
+
+| Change Type | Files to Update |
+|------------|-----------------|
+| New agent | `CLAUDE.md` (Departments table, Fleet Size, Agent-to-Skill Mapping) |
+| New department | `CLAUDE.md` (Departments table, department count) |
+| New skill | `README.md` (skill list), `CLAUDE.md` (Agent-to-Skill Mapping if applicable) |
+| New tool | `tools/REGISTRY.md`, `CLAUDE.md` (When to Use Tools) |
+| Any rename | All files that reference the old name |
+
+### How to Update (Process)
+
+1. Make your primary changes (the new skill, agent, etc.)
+2. Before your final commit, re-read `CLAUDE.md` and check every section that could be affected
+3. Make all documentation updates
+4. Commit everything together with a message that includes what was updated
+
+### What NOT to Do
+
+- Do NOT create agents that duplicate existing agent responsibilities (check the table first)
+- Do NOT add departments without an agent assignment
+- Do NOT skip documentation updates — the next session depends on this being accurate
+- Do NOT guess agent details — if you don't know, ask the user
 
 ## Skill Categories
 
