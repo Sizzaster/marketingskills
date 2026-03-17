@@ -8,6 +8,7 @@ This repository contains **Agent Skills** for AI agents following the [Agent Ski
 
 - **Name**: Marketing Skills
 - **GitHub**: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)
+- **Agent Dashboard**: [heavenly-dashboards.netlify.app/agent-dashboard.html](https://heavenly-dashboards.netlify.app/agent-dashboard.html)
 - **Creator**: Corey Haines
 - **License**: MIT
 
