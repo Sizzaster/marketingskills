@@ -1,6 +1,6 @@
 ---
 name: automate-mait-reporting
-description: When the user wants to automate their daily or weekly MAIT (Marketing Attribution and Investment Tracking) report. Use when the user says "MAIT report," "daily ad spend report," "marketing spend tracker," "pull ad spend," "compile marketing numbers," "attribution report," or "automate reporting." Pulls spend data from ad platforms (Meta/Facebook, Google, Pinterest, Twitter/X), order and discount code data from Shopify, and writes the compiled report to Google Sheets. For analytics setup, see analytics-tracking. For paid ads strategy, see paid-ads.
+description: When the user wants ad spend data, marketing reports, or MAIT reporting. Use when the user says "MAIT report," "how much did I spend," "ad spend," "Pinterest spend," "Twitter spend," "Meta spend," "Google spend," "marketing spend," "daily report," "weekly report," "monthly report," "pull the numbers," "run the report," "ROAS," "campaign spend," "budget report," "Sally," "Sally Sales," "Frank," "Frank Finance," or "what's my spend." Pulls spend data from ad platforms (Pinterest, Twitter/X, Meta/Facebook, Google), order and discount code data from Shopify, and writes the compiled report to Google Sheets. Agent personas: Sally Sales (raw data pulls), Frank Finance (financial rollups). See .agents/personas/ for agent details. For analytics setup, see analytics-tracking. For paid ads strategy, see paid-ads.
 metadata:
   version: 1.0.0
 ---
