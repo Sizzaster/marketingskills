@@ -1,6 +1,6 @@
 ---
 name: automate-mait-reporting
-description: When the user wants ad spend data, marketing reports, or MAIT reporting. Use when the user says "MAIT report," "how much did I spend," "ad spend," "Pinterest spend," "Twitter spend," "Meta spend," "Google spend," "marketing spend," "daily report," "weekly report," "monthly report," "pull the numbers," "run the report," "ROAS," "campaign spend," "budget report," "Sally," "Sally Sales," "Frank," "Frank Finance," or "what's my spend." Pulls spend data from ad platforms (Pinterest, Twitter/X, Meta/Facebook, Google), order and discount code data from Shopify, and writes the compiled report to Google Sheets. Agent personas: Sally Sales (raw data pulls), Frank Finance (financial rollups). See .agents/personas/ for agent details. For analytics setup, see analytics-tracking. For paid ads strategy, see paid-ads.
+description: When the user wants ad spend data, marketing reports, or MAIT reporting. Use when the user says "MAIT report," "how much did I spend," "ad spend," "Pinterest spend," "Twitter spend," "Meta spend," "Google spend," "marketing spend," "daily report," "weekly report," "monthly report," "pull the numbers," "run the report," "ROAS," "campaign spend," "budget report," "Sally," "Sally Sales," "Frank," "Frank Finance," "Darren," "Darren Data," or "what's my spend." Pulls spend data from ad platforms (Pinterest, Twitter/X, Meta/Facebook, Google), order and discount code data from Shopify, and writes the compiled report to Google Sheets. Agent personas: Sally Sales (raw data pulls), Frank Finance (financial rollups). See .agents/personas/ for agent details. For analytics setup, see analytics-tracking. For paid ads strategy, see paid-ads.
 metadata:
   version: 1.0.0
 ---
@@ -307,6 +307,7 @@ This skill is consumed by existing Heavenly Heat Saunas agents. Do NOT create ne
 
 | Agent | How They Use MAIT | Schedule |
 |-------|-------------------|----------|
+| **Darren Data** | Owns all measurement: ad spend tracking across all platforms, attribution, ROAS, analytics | Daily 05:00 CT |
 | **Frank Finance** | Pulls MAIT data daily for CEO dashboards. MER, revenue, costs, cash flow | Daily 04:00 CT |
 | **Sally Sales** | Morning revenue briefing using Shopify + ad spend data | Daily |
 | **Cecilia CEO** | Consumes MAIT weekly for strategic view. Revenue, MER, marketing KPIs unified | Mondays 07:00 CT |

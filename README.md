@@ -228,6 +228,7 @@ You can also invoke skills directly:
 ### Measurement & Testing
 - `analytics-tracking` - Event tracking setup
 - `ab-test-setup` - Experiment design
+- `automate-mait-reporting` - Automated ad spend and MAIT reports
 
 ### Retention
 - `churn-prevention` - Cancel flows, save offers, dunning, payment recovery
