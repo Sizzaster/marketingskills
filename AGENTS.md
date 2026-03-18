@@ -222,21 +222,21 @@ Each department has one primary agent. Some departments share agents for social 
 
 | # | Department | Agent | Role | Schedule |
 |---|-----------|-------|------|----------|
-| 1 | **CEO** | Cecilia CEO | Weekly Strategic View | Mondays 07:00 CT |
-| 2 | **Finance** | Frank Finance | Daily Financial Refresh | Daily 04:00 CT |
-| 3 | **Sales** | Sally Sales | Daily Revenue Intel | Daily 06:08 CT |
-| 4 | **Inventory** | Ivy Inventory | Weekly Inventory Refresh | Fridays 06:00 CT |
-| 5 | **Returns** | Rita Returns | Weekly Returns Tracker | Fridays 06:00 CT |
-| 6 | **Social** | Ingrid Instagram | IG Intelligence | Daily 05:15 CT |
-| 6 | **Social** | Tim Tweets | X/Twitter Radar | Daily 05:20 CT |
+| 1 | **CEO** | Cecilia | Weekly Strategic View | Mondays 07:00 CT |
+| 2 | **Finance** | Frank | Daily Financial Refresh | Daily 04:00 CT |
+| 3 | **Sales** | Sally | Daily Revenue Intel | Daily 06:08 CT |
+| 4 | **Inventory** | Ivy | Weekly Inventory Refresh | Fridays 06:00 CT |
+| 5 | **Returns** | Rita | Weekly Returns Tracker | Fridays 06:00 CT |
+| 6 | **Social** | Ingrid | IG Intelligence | Daily 05:15 CT |
+| 6 | **Social** | Tim | X/Twitter Radar | Daily 05:20 CT |
 | 6 | **Social** | Tessa | Tweet Scanner / Email Reports | Active |
-| 7 | **Partnerships** | Preston Partnerships | Weekly Sales Attribution | Fridays 15:00 CT |
-| 8 | **Operations** | Ruby Refresh | Weekly Repo Updater | Fridays 15:00 CT |
-| 9 | **Communications** | Diana Drafts | Email Reply Co-Pilot | Twice Daily |
-| 10 | **Brand Voice** | Willa Writer | Writing Style Engine | Weekly |
-| 11 | **Archives** | Aria Archive | Communication Vault | Nightly |
-| 12 | **Meta/Coordination** | Dahlia Dashboard | Meta-Agent Coordinator | Daily 06:00 & 18:00 CT |
-| 13 | **Measurement** | Darren Data | Measurement & Analytics Lead | Daily 05:00 CT |
+| 7 | **Partnerships** | Preston | Weekly Sales Attribution | Fridays 15:00 CT |
+| 8 | **Operations** | Ruby | Weekly Repo Updater | Fridays 15:00 CT |
+| 9 | **Communications** | Diana | Email Reply Co-Pilot | Twice Daily |
+| 10 | **Brand Voice** | Willa | Writing Style Engine | Weekly |
+| 11 | **Archives** | Aria | Communication Vault | Nightly |
+| 12 | **Meta/Coordination** | Dahlia | Meta-Agent Coordinator | Daily 06:00 & 18:00 CT |
+| 13 | **Measurement** | Darren | Measurement & Analytics Lead | Daily 05:00 CT |
 
 **Departments documented: 13.** Target: 10–15. New departments to be added as agents are created (e.g., Customer Service, Marketing/Paid, Product, HR).
 
@@ -248,21 +248,21 @@ Total fleet: **15 agents** (all documented above). 5 dashboard, 6 active, 4 plan
 
 | Agent | Data Sources |
 |-------|-------------|
-| Cecilia CEO | MAIT, Shopify, FT, EOS Scorecard, all department dashboards |
-| Frank Finance | MAIT, FT, FBT, Shopify API, cash flow |
-| Sally Sales | Shopify data, orders, products, daily trends |
-| Ivy Inventory | Shopify fulfillment, PO pipeline, QC inspection data |
-| Rita Returns | Shopify refunds, return reasons, SKU defect patterns |
-| Ingrid Instagram | Instagram posts, brand mentions, engagement opportunities |
-| Tim Tweets | X conversations, wellness trends, viral threads, influencer signals |
+| Cecilia | MAIT, Shopify, FT, EOS Scorecard, all department dashboards |
+| Frank | MAIT, FT, FBT, Shopify API, cash flow |
+| Sally | Shopify data, orders, products, daily trends |
+| Ivy | Shopify fulfillment, PO pipeline, QC inspection data |
+| Rita | Shopify refunds, return reasons, SKU defect patterns |
+| Ingrid | Instagram posts, brand mentions, engagement opportunities |
+| Tim | X conversations, wellness trends, viral threads, influencer signals |
 | Tessa | Tweet scanning (142 tweets/day), sends email reports |
-| Preston Partnerships | Affiliate codes, paid media codes, organic attribution |
-| Ruby Refresh | 31 tracked Google documents, department CLAUDE.md files |
-| Diana Drafts | Gmail inbox, sender priority, thread context |
-| Willa Writer | Gmail sent folder, style drift detection |
-| Aria Archive | Gmail sent folder, pattern indexing |
-| Darren Data | All ad platform APIs (Meta, Google, Pinterest, Twitter/X), GA4, Google Sheets, attribution data, ROAS |
-| Dahlia Dashboard | All agent logs, error rates, uptime |
+| Preston | Affiliate codes, paid media codes, organic attribution |
+| Ruby | 31 tracked Google documents, department CLAUDE.md files |
+| Diana | Gmail inbox, sender priority, thread context |
+| Willa | Gmail sent folder, style drift detection |
+| Aria | Gmail sent folder, pattern indexing |
+| Darren | All ad platform APIs (Meta, Google, Pinterest, Twitter/X), GA4, Google Sheets, attribution data, ROAS |
+| Dahlia | All agent logs, error rates, uptime |
 
 ### Agent-to-Skill Mapping
 
@@ -270,24 +270,24 @@ When a user references an agent by name, activate the corresponding skill:
 
 | Agent | Primary Skill | Notes |
 |-------|---------------|-------|
-| Frank Finance | `automate-mait-reporting` | Already pulls MAIT data daily at 04:00 CT. Also uses `revops` |
-| Sally Sales | `automate-mait-reporting` | Revenue intel from Shopify + ad spend. Also uses Shopify CLI |
-| Cecilia CEO | `automate-mait-reporting` | Consumes MAIT weekly for strategic dashboard |
-| Preston Partnerships | `automate-mait-reporting`, `referral-program` | Attribution by discount code type |
-| Ingrid Instagram | `social-content` | Instagram monitoring |
-| Tim Tweets | `social-content` | Twitter/X monitoring |
+| Frank | `automate-mait-reporting` | Already pulls MAIT data daily at 04:00 CT. Also uses `revops` |
+| Sally | `automate-mait-reporting` | Revenue intel from Shopify + ad spend. Also uses Shopify CLI |
+| Cecilia | `automate-mait-reporting` | Consumes MAIT weekly for strategic dashboard |
+| Preston | `automate-mait-reporting`, `referral-program` | Attribution by discount code type |
+| Ingrid | `social-content` | Instagram monitoring |
+| Tim | `social-content` | Twitter/X monitoring |
 | Tessa | `social-content` | Tweet scanning and email reports |
-| Diana Drafts | `email-sequence` | Drafts replies in Warren's voice. Pending deployment |
-| Willa Writer | `email-sequence` | Analyzes tone, vocabulary, formatting. Pending deployment |
-| Aria Archive | `email-sequence` | Builds searchable knowledge base of sent emails. Pending deployment |
-| Darren Data | `automate-mait-reporting`, `analytics-tracking`, `ab-test-setup` | Owns all measurement: ad spend tracking, attribution, ROAS, analytics. Overlaps with Frank (financial rollups) and Sally (revenue intel) but Darren owns the measurement discipline |
-| Dahlia Dashboard | — | Coordinates all agents, pulls status twice daily. Pending deployment |
+| Diana | `email-sequence` | Drafts replies in Warren's voice. Pending deployment |
+| Willa | `email-sequence` | Analyzes tone, vocabulary, formatting. Pending deployment |
+| Aria | `email-sequence` | Builds searchable knowledge base of sent emails. Pending deployment |
+| Darren | `automate-mait-reporting`, `analytics-tracking`, `ab-test-setup` | Owns all measurement: ad spend tracking, attribution, ROAS, analytics. Overlaps with Frank (financial rollups) and Sally (revenue intel) but Darren owns the measurement discipline |
+| Dahlia | — | Coordinates all agents, pulls status twice daily. Pending deployment |
 
 ### Important
 
 - **Do NOT create new agent personas** without checking this fleet list
-- **Frank Finance already runs MAIT daily at 04:00 CT** — do not duplicate this
-- **Sally Sales already does daily revenue intel** — do not duplicate this
+- **Frank already runs MAIT daily at 04:00 CT** — do not duplicate this
+- **Sally already does daily revenue intel** — do not duplicate this
 - Agent dashboard location: `agent-dashboard.html` on the user's Google Drive
 
 ## Self-Updating Instructions (Recursive Learning)
