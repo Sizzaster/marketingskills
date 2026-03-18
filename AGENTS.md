@@ -223,7 +223,7 @@ Each department has one primary agent. Some departments share agents for social 
 | # | Department | Agent | Role | Schedule |
 |---|-----------|-------|------|----------|
 | 1 | **CEO** | Cecilia | Weekly Strategic View | Mondays 07:00 CT |
-| 2 | **Finance** | Frank | Daily Financial Refresh | Daily 04:00 CT |
+| 2 | **Finance** | Frank | Daily Financial Refresh | Daily 04:30 CT |
 | 3 | **Sales** | Sally | Daily Revenue Intel | Daily 06:08 CT |
 | 4 | **Inventory** | Ivy | Weekly Inventory Refresh | Fridays 06:00 CT |
 | 5 | **Returns** | Rita | Weekly Returns Tracker | Fridays 06:00 CT |
@@ -236,7 +236,7 @@ Each department has one primary agent. Some departments share agents for social 
 | 10 | **Brand Voice** | Willa | Writing Style Engine | Weekly |
 | 11 | **Archives** | Aria | Communication Vault | Nightly |
 | 12 | **Meta/Coordination** | Dahlia | Meta-Agent Coordinator | Daily 06:00 & 18:00 CT |
-| 13 | **Measurement** | Darren | Measurement & Analytics Lead | Daily 05:00 CT |
+| 13 | **Measurement** | Darren | Measurement & Analytics Lead (MAIT Owner) | Daily 04:00 CT |
 
 **Departments documented: 13.** Target: 10–15. New departments to be added as agents are created (e.g., Customer Service, Marketing/Paid, Product, HR).
 
@@ -270,7 +270,7 @@ When a user references an agent by name, activate the corresponding skill:
 
 | Agent | Primary Skill | Notes |
 |-------|---------------|-------|
-| Frank | `automate-mait-reporting` | Already pulls MAIT data daily at 04:00 CT. Also uses `revops` |
+| Frank | `automate-mait-reporting` | Reads Darren's MAIT output daily at 04:30 CT for financial rollups. Also uses `revops` |
 | Sally | `automate-mait-reporting` | Revenue intel from Shopify + ad spend. Also uses Shopify CLI |
 | Cecilia | `automate-mait-reporting` | Consumes MAIT weekly for strategic dashboard |
 | Preston | `automate-mait-reporting`, `referral-program` | Attribution by discount code type |
@@ -280,15 +280,17 @@ When a user references an agent by name, activate the corresponding skill:
 | Diana | `email-sequence` | Drafts replies in Warren's voice. Pending deployment |
 | Willa | `email-sequence` | Analyzes tone, vocabulary, formatting. Pending deployment |
 | Aria | `email-sequence` | Builds searchable knowledge base of sent emails. Pending deployment |
-| Darren | `automate-mait-reporting`, `analytics-tracking`, `ab-test-setup` | Owns all measurement: ad spend tracking, attribution, ROAS, analytics. Overlaps with Frank (financial rollups) and Sally (revenue intel) but Darren owns the measurement discipline |
+| Darren | `automate-mait-reporting`, `analytics-tracking`, `ab-test-setup` | **MAIT Owner / Single Source of Truth.** Runs daily at 04:00 CT via launchd cron. Pulls all ad spend (Meta, Google, Pinterest, X) + Shopify revenue → compiles MAIT → writes to Google Sheets. All other agents (Frank, Sally, Cecilia, Preston) READ from Darren's output. Automation: `scripts/setup-darren-cron.sh` |
 | Dahlia | — | Coordinates all agents, pulls status twice daily. Pending deployment |
 
 ### Important
 
 - **Do NOT create new agent personas** without checking this fleet list
-- **Frank already runs MAIT daily at 04:00 CT** — do not duplicate this
-- **Sally already does daily revenue intel** — do not duplicate this
+- **Darren is the MAIT owner** — runs daily at 04:00 CT via launchd cron, pulls ALL ad spend + Shopify revenue. Do NOT duplicate this.
+- **Frank reads Darren's output at 04:30 CT** for financial rollups — do not have Frank pull raw ad data
+- **Sally reads Darren's output at 06:08 CT** for revenue intel — do not have Sally pull raw ad data
 - Agent dashboard location: `agent-dashboard.html` on the user's Google Drive
+- **Automation setup**: Run `./skills/automate-mait-reporting/scripts/setup-darren-cron.sh` on the local Mac to install the daily cron job. Credentials are in `.env` (gitignored).
 
 ## Self-Updating Instructions (Recursive Learning)
 
