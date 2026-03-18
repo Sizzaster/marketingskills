@@ -236,12 +236,13 @@ Each department has one primary agent. Some departments share agents for social 
 | 10 | **Brand Voice** | Willa Writer | Writing Style Engine | Weekly |
 | 11 | **Archives** | Aria Archive | Communication Vault | Nightly |
 | 12 | **Meta/Coordination** | Dahlia Dashboard | Meta-Agent Coordinator | Daily 06:00 & 18:00 CT |
+| 13 | **Measurement** | Darren Data | Measurement & Analytics Lead | Daily 05:00 CT |
 
-**Departments documented: 12.** Target: 10–15. New departments to be added as agents are created (e.g., Customer Service, Marketing/Paid, Product, HR).
+**Departments documented: 13.** Target: 10–15. New departments to be added as agents are created (e.g., Customer Service, Marketing/Paid, Product, HR).
 
 ### Fleet Size
 
-Total fleet: **14 agents** (all documented above). 5 dashboard, 5 active, 4 planned (pending deployment).
+Total fleet: **15 agents** (all documented above). 5 dashboard, 6 active, 4 planned (pending deployment).
 
 ### What Each Agent Monitors
 
@@ -260,6 +261,7 @@ Total fleet: **14 agents** (all documented above). 5 dashboard, 5 active, 4 plan
 | Diana Drafts | Gmail inbox, sender priority, thread context |
 | Willa Writer | Gmail sent folder, style drift detection |
 | Aria Archive | Gmail sent folder, pattern indexing |
+| Darren Data | All ad platform APIs (Meta, Google, Pinterest, Twitter/X), GA4, Google Sheets, attribution data, ROAS |
 | Dahlia Dashboard | All agent logs, error rates, uptime |
 
 ### Agent-to-Skill Mapping
@@ -278,6 +280,7 @@ When a user references an agent by name, activate the corresponding skill:
 | Diana Drafts | `email-sequence` | Drafts replies in Warren's voice. Pending deployment |
 | Willa Writer | `email-sequence` | Analyzes tone, vocabulary, formatting. Pending deployment |
 | Aria Archive | `email-sequence` | Builds searchable knowledge base of sent emails. Pending deployment |
+| Darren Data | `automate-mait-reporting`, `analytics-tracking`, `ab-test-setup` | Owns all measurement: ad spend tracking, attribution, ROAS, analytics. Overlaps with Frank (financial rollups) and Sally (revenue intel) but Darren owns the measurement discipline |
 | Dahlia Dashboard | — | Coordinates all agents, pulls status twice daily. Pending deployment |
 
 ### Important
