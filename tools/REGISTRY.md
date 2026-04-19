@@ -71,7 +71,7 @@ Quick reference for AI agents to discover tool capabilities and integration meth
 | onesignal | Push | ✓ | - | [✓](clis/onesignal.js) | ✓ | [onesignal.md](integrations/onesignal.md) |
 | demio | Webinar | ✓ | - | [✓](clis/demio.js) | - | [demio.md](integrations/demio.md) |
 | livestorm | Webinar | ✓ | - | [✓](clis/livestorm.js) | - | [livestorm.md](integrations/livestorm.md) |
-| shopify | Commerce | ✓ | - | ✓ | ✓ | [shopify.md](integrations/shopify.md) |
+| shopify | Commerce | ✓ | - | [✓](clis/shopify.js) | ✓ | [shopify.md](integrations/shopify.md) |
 | wordpress | CMS | ✓ | - | ✓ | ✓ | [wordpress.md](integrations/wordpress.md) |
 | webflow | CMS | ✓ | - | ✓ | ✓ | [webflow.md](integrations/webflow.md) |
 | google-sheets | Reporting | ✓ | - | [✓](clis/google-sheets.js) | ✓ | [google-sheets.md](integrations/google-sheets.md) |
