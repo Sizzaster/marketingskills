@@ -341,3 +341,4 @@ For implementation, see the [tools registry](../../tools/REGISTRY.md). Key RevOp
 - **analytics-tracking**: For tracking pipeline metrics and attribution
 - **launch-strategy**: For go-to-market launch planning
 - **sales-enablement**: For sales collateral, decks, and objection handling
+- **automate-mait-reporting**: For ad spend and revenue data (Sally Sales / Frank Finance agents). MAIT data feeds blended ROAS and marketing ROI calculations

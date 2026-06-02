@@ -8,7 +8,7 @@ E-commerce platform for online stores and retail.
 |-------------|-----------|-------|
 | API | ✓ | REST Admin API, Storefront API, GraphQL |
 | MCP | - | Not available |
-| CLI | ✓ | Shopify CLI for themes and apps |
+| CLI | ✓ | [shopify.js](../clis/shopify.js) — orders, products, customers, inventory |
 | SDK | ✓ | Official libraries for multiple languages |
 
 ## Authentication
@@ -174,3 +174,4 @@ shopify app create node
 - analytics-tracking
 - email-sequence
 - referral-program
+- automate-mait-reporting
